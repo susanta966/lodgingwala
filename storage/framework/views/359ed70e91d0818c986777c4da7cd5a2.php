@@ -1,0 +1,220 @@
+<?php $__env->startSection('title'); ?>
+    Edit Book Now
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('maincontent'); ?>
+    <div class="col-12">
+        <div class="card-group box-margin">
+            <div class="card">
+                <!-- Page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 mt-3">
+                                    <h5 style="margin-left: 19px;">Edit Book Now</h5>
+                                </div>
+                                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12" style="margin-left: -19px;">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="<?php echo e(url('/admin/dashboard')); ?>">Dashboard</a></li>
+                                            <li class="breadcrumb-item"><a href="<?php echo e(route('booknow.index')); ?>">Book Now</a></li>
+                                            <li class="breadcrumb-item active">Edit Book Now</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End page title -->
+
+                <?php if(session('success')): ?>
+                    <span class="alert alert-success"><?php echo e(session('success')); ?></span>
+                <?php endif; ?>
+
+                <form method="POST" action="<?php echo e(route('booknow.update', $booknow->id)); ?>" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
+                    <?php echo method_field('PUT'); ?>
+
+                    <div class="card-body">
+                        <div class="row p-4">
+                            <!-- Title -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="title" name="title" value="<?php echo e(old('title', $booknow->title)); ?>" placeholder="Enter Title">
+                                    <?php $__errorArgs = ['title'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="text-danger"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>
+
+                            <!-- Heading -->
+<!--                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="heading">Heading</label>
+                                    <input type="text" class="form-control" id="heading" name="heading" value="<?php echo e(old('heading', $booknow->heading)); ?>" placeholder="Enter Heading">
+                                    <?php $__errorArgs = ['heading'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="text-danger"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>-->
+
+                            <!-- Image -->
+                            <div class="col-md-6">
+                                <div class="card shadow-sm p-3">
+                                    <div class="form-group">
+                                        <label for="image" class="fw-bold">Main Image</label>
+                                        
+                                        <div class="custom-file">
+                                            <input type="file" name="image" class="form-control" id="image" accept="image/*">
+                                        </div>
+                                        
+                                        <small class="text-danger d-block mt-2">
+                                            Recommended size: <strong>350 × 250px</strong>
+                                        </small>
+                                        
+                                        <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <span class="text-danger d-block mt-1"><?php echo e($message); ?></span>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            
+                                        <?php if($booknow->image): ?>
+                                            <div class="mt-3">
+                                                <label class="fw-bold d-block">Current Image</label>
+                                                <img src="<?php echo e(asset('admin/booknowImages/' . $booknow->image)); ?>" alt="Current Image" class="border rounded shadow-sm" style="max-width: 150px;">
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                          
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" name="phone" class="form-control" id="phone" value="<?php echo e(old('phone', $booknow->phone)); ?>" placeholder="Enter Phone Number">
+                                    <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="text-danger"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email-1</label>
+                                    <input type="email" name="email_1" class="form-control" id="email_1" value="<?php echo e(old('email_1', $booknow->email_1)); ?>" placeholder="Enter Email">
+                                    <?php $__errorArgs = ['email_1'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="text-danger"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email-2</label>
+                                    <input type="email" name="email_2" class="form-control" id="email_2" value="<?php echo e(old('email_2', $booknow->email_2)); ?>" placeholder="Enter Email">
+                                    <?php $__errorArgs = ['email_2'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="text-danger"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="status">Status</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="1" <?php echo e(old('status', $booknow->status) == 1 ? 'selected' : ''); ?>>Active</option>
+                                        <option value="0" <?php echo e(old('status', $booknow->status) == 0 ? 'selected' : ''); ?>>Inactive</option>
+                                    </select>
+                                    <?php $__errorArgs = ['status'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="text-danger"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>
+
+                            <!-- Priority -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="priority">Priority</label>
+                                    <input type="text" name="priority" class="form-control" id="priority" value="<?php echo e(old('priority', $booknow->priority)); ?>" placeholder="Enter Priority">
+                                    <?php $__errorArgs = ['priority'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="text-danger"><?php echo e($message); ?></span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>
+                     
+                        </div>
+
+                        <div class="d-flex align-items-right gap-5 flex-wrap ml-4 mb-5">
+                            <button type="submit" class="btn btn-primary rounded text-capitalize">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/demo82_color_usr/data/www/demo82.colormoon.in/rockdale/resources/views/admin/booknow/edit.blade.php ENDPATH**/ ?>

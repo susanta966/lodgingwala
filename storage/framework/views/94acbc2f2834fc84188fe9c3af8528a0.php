@@ -1,0 +1,207 @@
+<?php
+$sitedetails = \App\Models\SiteSetting::find(1);
+
+?>
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <!--<title><?php echo e($sitedetails->site_title); ?> <?php echo e($meta_title ?? ''); ?></title>-->
+        <title>Hotel Rockdale</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="meta-title" content="<?php echo e($meta_title ?? ''); ?>">
+        <meta name="keywords" content="<?php echo e($meta_keywords ?? ''); ?>">
+        <meta name="description" content="<?php echo e($meta_description ?? ''); ?>">
+        <meta property="og:type" content="<?php echo e($sitedetails->og_type); ?>">
+        <meta property="og:title" content="<?php echo e($sitedetails->og_title); ?>">
+        <meta property="og:description" content="<?php echo e($sitedetails->og_description); ?>">
+        <meta property="og:url" content="<?php echo e($sitedetails->og_url); ?>">
+        <meta property="og:site_name" content="<?php echo e($sitedetails->og_site_name); ?>">
+        <meta property="og:image" content="<?php echo e(asset('admin/siteImage/og/' . $sitedetails->og_image)); ?>">
+        <meta property="og:image:width" content="<?php echo e($sitedetails->og_width); ?>">
+        <meta property="og:image:height" content="<?php echo e($sitedetails->og_height); ?>">
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="<?php echo e($sitedetails->twitter_card); ?>">
+        <meta name="twitter:title" content="<?php echo e($sitedetails->twitter_title); ?>">
+        <meta name="twitter:description" content="<?php echo e($sitedetails->og_description); ?>">
+        <meta name="twitter:image" content="<?php echo e(asset('admin/siteImage/twitter/' . $sitedetails->twitter_image)); ?>">
+
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/bootstrap.min.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/animate.min.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/bootstrap-submenu.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/bootstrap-select.min.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/fonts/font-awesome/css/font-awesome.min.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/fonts/flaticon/font/flaticon.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/fonts/linearicons/style.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/jquery.mCustomScrollbar.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/bootstrap-datepicker.min.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/dropzone.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/slick.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('frontend/css/leaflet.css')); ?>" type="text/css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/initial.css')); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/style.css')); ?>?r=<?=time()?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontend/css/skins/default.css')); ?>?r=<?=time()?>">
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+        <!-- Favicon icon -->
+        <link rel="shortcut icon" href="<?php echo e(asset('admin/siteImage/favicon/' . $sitedetails->favicon)); ?>"
+              type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+        <!-- Google fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Main header start -->
+        <header class="main-header" id="main-header-2">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand logos" href="<?php echo e(route('frontend.home')); ?>">
+                        <img src="<?php echo e(asset('admin/siteImage/logo/' . $sitedetails->logo)); ?>" alt="logo"
+                             class="logo-photo">
+                        <img src="<?php echo e(asset('admin/siteImage/logo/' . $sitedetails->logo)); ?>" alt="logo"
+                             class="logo-photo2">
+                    </a>
+                    <button class="navbar-toggler" id="drawer" type="button">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <div class="navbar-collapse collapse w-100 justify-content-end" id="navbar">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item <?php echo e(Route::is('frontend.home') ? 'active' : ''); ?>">
+                                <a class="nav-link" href="<?php echo e(route('frontend.home')); ?>">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item <?php echo e(Route::is('frontend.about') ? 'active' : ''); ?>">
+                                <a class="nav-link" href="<?php echo e(route('frontend.about')); ?>">
+                                    About Us
+                                </a>
+                            </li>
+                            <li class="nav-item <?php echo e(Route::is('frontend.room') ? 'active' : ''); ?>">
+                                <a class="nav-link" href="<?php echo e(route('frontend.room')); ?>">
+                                    Rooms
+                                </a>
+                            </li>
+                            <li class="nav-item <?php echo e(request()->is('#bankid') ? 'active' : ''); ?>">
+                                <a class="nav-link" href="<?php echo e(url('/')); ?>#bankid">
+                                    Banquets
+                                </a>
+                            </li>
+                            <li class="nav-item <?php echo e(Route::is('frontend.blog') ? 'active' : ''); ?>">
+                                <a class="nav-link" href="<?php echo e(route('frontend.blog')); ?>">
+                                    Blogs
+                                </a>
+                            </li>
+                            <li class="nav-item <?php echo e(Route::is('frontend.review') ? 'active' : ''); ?>">
+                                <a class="nav-link" href="<?php echo e(route('frontend.review')); ?>">
+                                    Review Us
+                                </a>
+                            </li>
+                            <li class="nav-item <?php echo e(Route::is('frontend.contact') ? 'active' : ''); ?>">
+                                <a class="nav-link" href="<?php echo e(route('frontend.contact')); ?>">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('frontend.booknow')); ?>" class="btn-lg btn-4 btn-6">Book Now</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </nav>
+
+            </div>
+        </header>
+        <!-- Main header end -->
+
+        <!-- Sidenav start -->
+        <nav id="sidebar" class="nav-sidebar sidebar-heading-section">
+            <!-- Close btn-->
+            <div id="dismiss">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="sidebar-inner">
+                <div class="sidebar-logo">
+                    <img src="<?php echo e(asset('frontend/img/logo.png')); ?>" alt="sidebarlogo">
+                </div>
+                <div class="sidebar-navigation">
+                    <ul class="menu-list">
+                        <li>
+                            <a href="<?php echo e(route('frontend.home')); ?>" class="<?php echo e(Route::is('frontend.home') ? 'active' : ''); ?>">Home</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo e(route('frontend.about')); ?>" class="<?php echo e(Route::is('frontend.about') ? 'active' : ''); ?>">About Us</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo e(route('frontend.room')); ?>" class="<?php echo e(Route::is('frontend.room') ? 'active' : ''); ?>">Rooms</a>
+                        </li>
+                       <li>
+    <a href="<?php echo e(url('/')); ?>#bankid" onclick="closeNav()">Banquets</a>
+</li>
+                        <li>
+                            <a href="<?php echo e(route('frontend.blog')); ?>" class="<?php echo e(Route::is('frontend.blog') ? 'active' : ''); ?>">Blogs</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo e(route('frontend.review')); ?>" class="<?php echo e(Route::is('frontend.review') ? 'active' : ''); ?>">Review Us</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo e(route('frontend.contact')); ?>" class="<?php echo e(Route::is('frontend.contact') ? 'active' : ''); ?>">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo e(route('frontend.booknow')); ?>" class="<?php echo e(Route::is('frontend.booknow') ? 'active' : ''); ?>">Book Now</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="get-in-touch">
+                    <h3 class="heading">Get in Touch</h3>
+                    <div class="sidebar-contact-info">
+                        <div class="icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="body-info">
+                            <a href="mailto:<?php echo e($sitedetails->email); ?>"><?php echo e($sitedetails->email); ?></a>
+                        </div>
+                    </div>
+                    <div class="sidebar-contact-info">
+                        <div class="icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="body-info">
+                            <a href="tel:<?php echo e($sitedetails->phone); ?>"><?php echo e($sitedetails->phone); ?></a>
+                        </div>
+                    </div>
+                    <div class="sidebar-contact-info mb-0">
+                        <div class="icon">
+                            <a href="https://wa.me/<?php echo e($sitedetails->whatsapp); ?>" target="_blank">
+                                <i class="fab fa-whatsapp-square"></i>
+                            </a>
+                        </div>
+                        <div class="body-info">
+                            <a href="tel:<?php echo e($sitedetails->whatsapp); ?>"><?php echo e($sitedetails->whatsapp); ?></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Sidenav end -->
+<?php /**PATH /var/www/demo82_color_usr/data/www/demo82.colormoon.in/rockdale/resources/views/frontend/layouts/header.blade.php ENDPATH**/ ?>
