@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             RoomSeeder::class,
             MobileSliderSeeder::class,
+            SeoSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class,
+            RecentPostSeeder::class,
         ]);
     }
 }
