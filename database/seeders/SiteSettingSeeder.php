@@ -11,9 +11,9 @@ class SiteSettingSeeder extends Seeder
         SiteSetting::truncate();
         SiteSetting::create([
             'site_title' => 'Lodgingwala',
-            'logo' => 'logo.png',
+            'logo' => '1731733822.png', // Use a real file from public/admin/siteImage/logo/
             'favicon' => 'favicon.ico',
-            'ftlogo' => 'footerlogo.png',
+            'ftlogo' => '1731733822.png',
             'address' => '123 Main Street, City',
             'email' => 'info@lodgingwala.com',
             'phone' => '1234567890',
