@@ -28,7 +28,7 @@ class HomePageController extends Controller
         $location = Location::get();
         $blog = Blog::where('status', 1)->orderBy('priority')->latest()->take(6)->get();
         $testimonial = \App\Models\Testimonial::find(1);
-          $seo = Seo::where('page_name','home')->first();
+          $seo = Seo::where('page','home')->first();
          //        dd($seo);
                  $meta_title=$seo->meta_title;
                  $meta_keywords=implode(",", json_decode($seo->meta_keywords));
