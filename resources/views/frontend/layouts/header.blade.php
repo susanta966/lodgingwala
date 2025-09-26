@@ -211,9 +211,9 @@ $sitedetails = \App\Models\SiteSetting::find(1);
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="main-content">
-                            <h1 class="page-title">{{ $page_title }}</h1>
+                            <h1 class="page-title">{{ isset($page_title) ? $page_title : '' }}</h1>
                             <div class="page-content">
-                                {!! $page_content !!}
+                                {!! isset($page_content) ? $page_content : '' !!}
                             </div>
                         </div>
                     </div>
