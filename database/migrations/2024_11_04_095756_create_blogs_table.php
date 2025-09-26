@@ -15,13 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->text('description');
-            $table->string('images');
-            $table->string('author');
-            $table->string('author_image');
-            $table->date('publish_date');
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('images')->nullable();
+            $table->string('author')->nullable();
+            $table->string('author_image')->nullable();
+            $table->date('publish_date')->nullable();
             $table->boolean('status')->default(0);
-            $table->string('priority');
+            $table->string('priority')->nullable();
             $table->timestamps();
         });
     }

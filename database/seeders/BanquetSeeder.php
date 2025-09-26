@@ -12,6 +12,7 @@ class BanquetSeeder extends Seeder
         Banquet::insert([
             [
                 'name' => 'Grand Banquet Hall',
+                'slug' => 'grand-banquet-hall',
                 'image' => 'banquet1.jpg',
                 'person' => '200',
                 'status' => 1,
@@ -21,6 +22,7 @@ class BanquetSeeder extends Seeder
             ],
             [
                 'name' => 'Royal Banquet',
+                'slug' => 'royal-banquet',
                 'image' => 'banquet2.jpg',
                 'person' => '150',
                 'status' => 1,
