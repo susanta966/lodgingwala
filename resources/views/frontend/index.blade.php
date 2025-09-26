@@ -340,18 +340,23 @@
                                                         {{-- <i class="fa fa-users"></i> --}}
                                                         {{ $data->person }}
                                                     </li>
-                                                    @foreach (json_decode($data->amenities_id) as $id)
                                                     @php
-                                                    $amenity = App\Models\Amenitie::find($id);
+                                                        $amenities = json_decode($data->amenities_id);
                                                     @endphp
-                                                    @if ($amenity && $amenity->icon)
-                                                    <li>
-                                                        <img src="{{ asset('admin/amenityImage/' . $amenity->icon) }}"
-                                                             alt="{{ $amenity->name }} icon">
-                                                        {{ $amenity->name }}
-                                                    </li>
+                                                    @if (is_array($amenities) && count($amenities) > 0)
+                                                        @foreach ($amenities as $id)
+                                                            @php
+                                                                $amenity = App\Models\Amenitie::find($id);
+                                                            @endphp
+                                                            @if ($amenity && $amenity->icon)
+                                                                <li>
+                                                                    <img src="{{ asset('admin/amenityImage/' . $amenity->icon) }}"
+                                                                         alt="{{ $amenity->name }} icon">
+                                                                    {{ $amenity->name }}
+                                                                </li>
+                                                            @endif
+                                                        @endforeach
                                                     @endif
-                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
