@@ -222,7 +222,7 @@ $sitedetails = \App\Models\SiteSetting::find(1);
                             <div class="widget">
                                 <h3 class="widget-title">Recent Posts</h3>
                                 <ul class="recent-posts">
-                                    @foreach($recent_posts as $post)
+                                    @foreach(isset($recent_posts) ? $recent_posts : [] as $post)
                                         <li>
                                             <a href="{{ route('frontend.blog.detail', $post->slug) }}">{{ $post->title }}</a>
                                             <span class="post-date">{{ $post->created_at->format('M d, Y') }}</span>
@@ -233,7 +233,7 @@ $sitedetails = \App\Models\SiteSetting::find(1);
                             <div class="widget">
                                 <h3 class="widget-title">Categories</h3>
                                 <ul class="categories">
-                                    @foreach($categories as $category)
+                                    @foreach(isset($categories) ? $categories : [] as $category)
                                         <li>
                                             <a href="{{ route('frontend.blog.category', $category->slug) }}">{{ $category->name }}</a>
                                         </li>
@@ -243,7 +243,7 @@ $sitedetails = \App\Models\SiteSetting::find(1);
                             <div class="widget">
                                 <h3 class="widget-title">Tags</h3>
                                 <div class="tags">
-                                    @foreach($tags as $tag)
+                                    @foreach(isset($tags) ? $tags : [] as $tag)
                                         <a href="{{ route('frontend.blog.tag', $tag->slug) }}">{{ $tag->name }}</a>
                                     @endforeach
                                 </div>
