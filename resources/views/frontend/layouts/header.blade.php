@@ -204,3 +204,154 @@ $sitedetails = \App\Models\SiteSetting::find(1);
         </nav>
         
         <!-- Sidenav end -->
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="main-content">
+                            <h1 class="page-title">{{ $page_title }}</h1>
+                            <div class="page-content">
+                                {!! $page_content !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="sidebar">
+                            <div class="widget">
+                                <h3 class="widget-title">Recent Posts</h3>
+                                <ul class="recent-posts">
+                                    @foreach($recent_posts as $post)
+                                        <li>
+                                            <a href="{{ route('frontend.blog.detail', $post->slug) }}">{{ $post->title }}</a>
+                                            <span class="post-date">{{ $post->created_at->format('M d, Y') }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="widget">
+                                <h3 class="widget-title">Categories</h3>
+                                <ul class="categories">
+                                    @foreach($categories as $category)
+                                        <li>
+                                            <a href="{{ route('frontend.blog.category', $category->slug) }}">{{ $category->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="widget">
+                                <h3 class="widget-title">Tags</h3>
+                                <div class="tags">
+                                    @foreach($tags as $tag)
+                                        <a href="{{ route('frontend.blog.tag', $tag->slug) }}">{{ $tag->name }}</a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content Wrapper end -->
+
+        <!-- Footer start -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-widget">
+                            <h3 class="widget-title">About Us</h3>
+                            <p>{{ $sitedetails->footer_about }}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-widget">
+                            <h3 class="widget-title">Quick Links</h3>
+                            <ul class="quick-links">
+                                <li><a href="{{ route('frontend.home') }}">Home</a></li>
+                                <li><a href="{{ route('frontend.about') }}">About Us</a></li>
+                                <li><a href="{{ route('frontend.room') }}">Rooms</a></li>
+                                <li><a href="{{ url('/') }}#bankid">Banquets</a></li>
+                                <li><a href="{{ route('frontend.blog') }}">Blogs</a></li>
+                                <li><a href="{{ route('frontend.review') }}">Review Us</a></li>
+                                <li><a href="{{ route('frontend.contact') }}">Contact Us</a></li>
+                                <li><a href="{{ route('frontend.booknow') }}">Book Now</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-widget">
+                            <h3 class="widget-title">Contact Us</h3>
+                            <div class="contact-info">
+                                <div class="icon">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <div class="info">
+                                    <p>{{ $sitedetails->address }}</p>
+                                </div>
+                            </div>
+                            <div class="contact-info">
+                                <div class="icon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="info">
+                                    <a href="mailto:{{ $sitedetails->email }}">{{ $sitedetails->email }}</a>
+                                </div>
+                            </div>
+                            <div class="contact-info">
+                                <div class="icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="info">
+                                    <a href="tel:{{ $sitedetails->phone }}">{{ $sitedetails->phone }}</a>
+                                </div>
+                            </div>
+                            <div class="contact-info">
+                                <div class="icon">
+                                    <a href="https://wa.me/{{ $sitedetails->whatsapp }}" target="_blank">
+                                        <i class="fab fa-whatsapp-square"></i>
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <a href="tel:{{ $sitedetails->whatsapp }}">{{ $sitedetails->whatsapp }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-bottom">
+                            <p>&copy; {{ date('Y') }} Lodgingwala. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer end -->
+
+        <!-- Back to top button -->
+        <a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+
+        <!-- Scripts -->
+        <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/animate.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/bootstrap-submenu.js') }}"></script>
+        <script src="{{ asset('frontend/js/bootstrap-select.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/bootstrap-datepicker.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/dropzone.js') }}"></script>
+        <script src="{{ asset('frontend/js/slick.js') }}"></script>
+        <script src="{{ asset('frontend/js/leaflet.js') }}"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Custom script -->
+        <script src="{{ asset('frontend/js/script.js') }}"></script>
+    </body>
+
+</html>
