@@ -7,7 +7,7 @@ $sitedetails = \App\Models\SiteSetting::find(1);
 
     <head>
         <!--<title>{{ $sitedetails->site_title }} {{ $meta_title ?? '' }}</title>-->
-        <title>Hotel Rockdale</title>
+    <title>Lodgingwala</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <meta name="meta-title" content="{{ $meta_title ?? '' }}">
@@ -141,7 +141,7 @@ $sitedetails = \App\Models\SiteSetting::find(1);
             </div>
             <div class="sidebar-inner">
                 <div class="sidebar-logo">
-                    <img src="{{ asset('frontend/img/logo.png') }}" alt="sidebarlogo">
+                    <img src="{{ asset('frontend/img/logo.png') }}" alt="Lodgingwala sidebar logo">
                 </div>
                 <div class="sidebar-navigation">
                     <ul class="menu-list">

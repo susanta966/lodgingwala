@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-lg-7 col-md-7">
                     <p class="text-center">
-                        Copyright <span id="currentYear"></span> Rockdale. All rights reserved. Design and Developed by
+                        Copyright <span id="currentYear"></span> Lodgingwala. All rights reserved. Design and Developed by
                         <a target="_blank" href="https://thecolourmoon.com/">Colourmoon</a>.
                     </p>
 

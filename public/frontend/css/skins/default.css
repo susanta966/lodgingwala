@@ -1,16 +1,24 @@
 
+/* Modernized theme button */
 .btn-theme {
-    background: #c72726;
-    border: 2px solid #c72726;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(221,36,118,0.15);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
+/* Button hover effect */
 .btn-theme:hover {
-    background: #e49755;
-    border: 2px solid #e49755;
+    background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+    box-shadow: 0 4px 16px rgba(221,36,118,0.25);
 }
 
+/* Top header modern color */
 .top-header {
-    background: #c72726;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    color: #fff;
 }
 
 .setting-button {
@@ -74,8 +82,11 @@
     border: solid 2px #c72726;
 }
 
-.btn-2:hover {
-    color: #c72726;
+/* Book Now button hover */
+.btn-4:hover {
+    background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(221,36,118,0.25);
     border: solid 2px #c72726;
 }
 
@@ -331,8 +342,15 @@
     color: #c72726;
 }
 
+/* Book Now button modern */
 .btn-4 {
-    background: #860a03;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(221,36,118,0.15);
+    border: none;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .btn-4:after {
@@ -597,8 +615,12 @@
     color: #991e17;
 }
 
+/* Sidebar nav hover modern (fixed) */
 .sidebar-heading-section .sidebar-navigation ul li a:hover {
-    color: #991e17 !important: ;
+    color: #dd2476 !important;
+    background: #fff0f6;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
 }
 
 #dismiss {
