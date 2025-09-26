@@ -1,5 +1,8 @@
 @php
 $sitedetails = \App\Models\SiteSetting::find(1);
+$defaultLogo = asset('admin/img/core-img/logo.png');
+$defaultFavicon = asset('admin/img/core-img/favicon.png');
+$defaultFtlogo = asset('admin/img/core-img/small-logo.png');
 @endphp
 <style>
     .ecaps-logo a img {
@@ -22,9 +25,12 @@ $sitedetails = \App\Models\SiteSetting::find(1);
 <div class="ecaps-sidemenu-area">
     <!-- Desktop Logo -->
     <div class="ecaps-logo">
-        <a href="{{ route('admin.dashboard') }}"><img class="desktop-logo" style="height: 65px;width:220px;"
-                                                      src="{{ asset('admin/siteImage/logo/' . $sitedetails->logo) }}" alt="Desktop Logo"> <img class="small-logo"
-                                                      src="{{ asset('admin/siteImage/logo/' . $sitedetails->logo) }}" alt="Mobile Logo"></a>
+       <a href="{{ route('admin.dashboard') }}">
+          <img class="desktop-logo" style="height: 65px;width:220px;"
+              src="{{ $sitedetails && $sitedetails->logo ? asset('admin/siteImage/logo/' . $sitedetails->logo) : $defaultLogo }}" alt="Desktop Logo">
+          <img class="small-logo"
+              src="{{ $sitedetails && $sitedetails->logo ? asset('admin/siteImage/logo/' . $sitedetails->logo) : $defaultLogo }}" alt="Mobile Logo">
+       </a>
     </div>
 
     <!-- Side Nav -->

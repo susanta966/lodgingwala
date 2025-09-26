@@ -76,9 +76,9 @@
                                     <input class="form-control" type="file" name="logo">
                                     <span class="text-danger">*Recommended image size: 235 × 70px</span>
                                     <br />
-                                    <a href="{{ asset('admin/siteImage/logo/' . $sitesettings->logo) }}" target="_blank"
+                                    <a href="{{ $sitesettings->logo ? asset('admin/siteImage/logo/' . $sitesettings->logo) : $defaultLogo }}" target="_blank"
                                         rel="noopener noreferrer"><img
-                                            src="{{ asset('admin/siteImage/logo/' . $sitesettings->logo) }}" alt=""
+                                            src="{{ $sitesettings->logo ? asset('admin/siteImage/logo/' . $sitesettings->logo) : $defaultLogo }}" alt="Logo"
                                             style="width:200px;"></a>
                                     @error('logo')
                                         <span class="text-danger">{{ $message }}</span>
@@ -92,10 +92,10 @@
                                     <input class="form-control" type="file" name="favicon">
                                     <span class="text-danger">*Recommended image size: 60 × 60px</span>
                                     <br />
-                                    <a href="{{ asset('admin/siteImage/favicon/' . $sitesettings->favicon) }}"
+                                    <a href="{{ $sitesettings->favicon ? asset('admin/siteImage/favicon/' . $sitesettings->favicon) : $defaultFavicon }}"
                                         target="_blank" rel="noopener noreferrer">
-                                        <img src="{{ asset('admin/siteImage/favicon/' . $sitesettings->favicon) }}"
-                                            alt="" style="width:150px;height:150px;"></a>
+                                        <img src="{{ $sitesettings->favicon ? asset('admin/siteImage/favicon/' . $sitesettings->favicon) : $defaultFavicon }}"
+                                            alt="Favicon" style="width:150px;height:150px;"></a>
                                     @error('favicon')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -108,10 +108,10 @@
                                     <input class="form-control" type="file" name="ftlogo">
                                     <span class="text-danger">*Recommended image size: 250 × 75px</span>
                                     <br />
-                                    <a href="{{ asset('admin/siteImage/ftlogo/' . $sitesettings->ftlogo) }}"
+                                    <a href="{{ $sitesettings->ftlogo ? asset('admin/siteImage/ftlogo/' . $sitesettings->ftlogo) : $defaultFtlogo }}"
                                         target="_blank" rel="noopener noreferrer">
-                                        <img src="{{ asset('admin/siteImage/ftlogo/' . $sitesettings->ftlogo) }}"
-                                            alt="" style="width:150px;height:150px;"></a>
+                                        <img src="{{ $sitesettings->ftlogo ? asset('admin/siteImage/ftlogo/' . $sitesettings->ftlogo) : $defaultFtlogo }}"
+                                            alt="Footer Logo" style="width:150px;height:150px;"></a>
                                     @error('flogo')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
