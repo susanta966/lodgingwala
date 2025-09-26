@@ -37,6 +37,8 @@ return new class extends Migration
             $table->string('twitter_image')->nullable();
             $table->string('site_about')->nullable(); 
             $table->text('site_location')->nullable();
+            $table->string('map_link')->nullable();
+            $table->string('contact_title')->nullable();
             $table->timestamps();
         });
     }
